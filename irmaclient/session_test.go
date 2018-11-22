@@ -440,3 +440,11 @@ func TestKeyshareSessions(t *testing.T) {
 
 	test.ClearTestStorage(t)
 }
+
+func TestParseRequestorJwt(t *testing.T) {
+	jwt := "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpcHJlcXVlc3QiOnsiZGF0YSI6ImZvb2JhciIsInRpbWVvdXQiOjYwLCJyZXF1ZXN0Ijp7ImNyZWRlbnRpYWxzIjpbeyJjcmVkZW50aWFsIjoiaXJtYS1kZW1vLmFsbGlhbmRlci5jb25uZWN0aW9uIiwidmFsaWRpdHkiOjE1NTg1MzgyODcsImF0dHJpYnV0ZXMiOnsicHNldWRvbnltIjoiTllTVHlldHR-RjZtTzF3a09NQjh5IiwiZWFuZWxlYyI6IjAwMDAiLCJlYW5nYXMiOiIwMDAwIn19XX19LCJpYXQiOjE1NDI5MDEzNzksImlzcyI6ImRpdmEiLCJzdWIiOiJpc3N1ZV9yZXF1ZXN0In0."
+
+	_, err := irma.ParseRequestorJwt(irma.ActionIssuing, jwt)
+
+	require.Nil(t, err)
+}
